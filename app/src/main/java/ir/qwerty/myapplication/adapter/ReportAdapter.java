@@ -32,7 +32,8 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
     public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
         ReportModel r= reportModels.get(position);
         holder.title.setText(r.getTitle());
-
+        holder.context.setText(r.getContext());
+        holder.importance.setText(r.getImportance());
     }
 
     @Override

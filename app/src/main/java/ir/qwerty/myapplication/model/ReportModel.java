@@ -3,9 +3,9 @@ package ir.qwerty.myapplication.model;
 public class ReportModel {
     String title;
     String context;
-    boolean importance;
+    String importance;
 
-    public ReportModel(String title, String context, boolean importance) {
+    public ReportModel(String title, String context, String importance) {
         this.title = title;
         this.context = context;
         this.importance = importance;
@@ -27,11 +27,11 @@ public class ReportModel {
         this.context = context;
     }
 
-    public boolean isImportance() {
+    public String getImportance() {
         return importance;
     }
 
-    public void setImportance(boolean importance) {
+    public void setImportance(String importance) {
         this.importance = importance;
     }
 }
