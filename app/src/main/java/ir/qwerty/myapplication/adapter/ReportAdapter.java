@@ -30,6 +30,8 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
 
     @Override
     public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
+        ReportModel r= reportModels.get(position);
+        holder.title.setText(r.getTitle());
 
     }
 
