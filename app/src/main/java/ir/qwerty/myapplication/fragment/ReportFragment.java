@@ -22,12 +22,9 @@ import ir.qwerty.myapplication.model.ReportModel;
 public class ReportFragment extends Fragment {
 
     View view;
-
     private List<ReportModel> reportModels=new ArrayList<>();
     private RecyclerView recyclerView;
     private ReportAdapter reportAdapter;
-
-
 
     @Nullable
     @Override
@@ -35,7 +32,7 @@ public class ReportFragment extends Fragment {
 
         view=inflater.inflate(R.layout.fragment_report,container,false);
 
-        recyclerView=view.findViewById(R.id.recyclerViewFragmentReport);
+        recyclerView=view.findViewById(R.id.recyclerView);
         reportAdapter =new ReportAdapter(reportModels);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
