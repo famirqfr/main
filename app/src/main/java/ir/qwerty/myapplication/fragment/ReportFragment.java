@@ -40,11 +40,15 @@ public class ReportFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(reportAdapter);
-
-
-
+         setData();
 
         return view;
+    }
+
+
+    private void setData(){
+        reportModels.clear();
+        reportModels.add(new ReportModel("hdshv","hdkssghkvggcgs","yess"));
 
     }
 }

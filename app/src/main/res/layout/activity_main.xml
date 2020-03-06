@@ -16,10 +16,6 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         tools:targetApi="lollipop">
-
-
-
-
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
