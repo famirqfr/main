@@ -35,7 +35,7 @@ public class ReportFragment extends Fragment {
 
         view=inflater.inflate(R.layout.fragment_report,container,false);
 
-        recyclerView=view.findViewById(R.id.recyclerViewFragmentReport);
+        recyclerView=view.findViewById(R.id.recyclerView);
         reportAdapter =new ReportAdapter(reportModels);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

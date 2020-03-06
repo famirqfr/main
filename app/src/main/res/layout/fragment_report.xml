@@ -34,7 +34,7 @@
         app:fab_progress_max="100"
         app:fab_progress_showBackground="false"
         app:fab_shadowColor="#66000000"
-        app:fab_shadowRadius="4dp"
+        app:fab_shadowRadius="0dp"
         app:fab_shadowXOffset="1dp"
         app:fab_shadowYOffset="3dp"
         app:fab_showAnimation="@anim/fab_scale_up"
