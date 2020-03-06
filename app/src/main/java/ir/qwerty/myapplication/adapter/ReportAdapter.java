@@ -23,7 +23,6 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
     @NonNull
     @Override
     public ReportViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.report_item_style,parent,false);
         return new ReportViewHolder(view);
     }

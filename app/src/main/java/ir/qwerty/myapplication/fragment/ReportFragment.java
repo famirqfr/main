@@ -20,32 +20,35 @@ import ir.qwerty.myapplication.model.ReportModel;
 
 
 public class ReportFragment extends Fragment {
+
     View view;
 
-    private List<ReportModel> reportModels = new ArrayList<>();
+    private List<ReportModel> reportModels=new ArrayList<>();
     private RecyclerView recyclerView;
     private ReportAdapter reportAdapter;
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_report, container, false);
+        view=inflater.inflate(R.layout.fragment_report,container,false);
 
-        recyclerView = view.findViewById(R.id.recyclerViewFragmentReport);
-        reportAdapter = new ReportAdapter(reportModels);
+        recyclerView=view.findViewById(R.id.recyclerViewFragmentReport);
+        reportAdapter =new ReportAdapter(reportModels);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(reportAdapter);
-        setData();
+         setData();
 
         return view;
     }
 
 
-    private void setData() {
+    private void setData(){
         reportModels.clear();
-        reportModels.add(new ReportModel("hdshv", "hdkssghkvggcgs", "yess"));
+        reportModels.add(new ReportModel("hdshv","hdkssghkvggcgs","yess"));
 
     }
 }

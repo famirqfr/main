@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar=findViewById(R.id.aa);
+        Toolbar toolbar = findViewById(R.id.aa);
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("R.string.drawer_item_home");
         SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("R.string.drawer_item_settings");
 
@@ -89,20 +89,16 @@ public class MainActivity extends AppCompatActivity {
         FragmentPagerAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
                 .add("پیام", MessageFragment.class)
-                .add("گزارش", ReportFragment.class)
                 .add("اخبار", NewsFragment.class)
+                .add("گزارش", ReportFragment.class)
                 .add("موقعیت", LocationFragment.class)
                 .create());
 
         ViewPager viewPager = findViewById(R.id.viewPagerMainActivity);
         viewPager.setAdapter(adapter);
-
-
+        
         SmartTabLayout viewSmartTabLayout = findViewById(R.id.smartTab);
         viewSmartTabLayout.setViewPager(viewPager);
 
     }
-
-
-
 }
