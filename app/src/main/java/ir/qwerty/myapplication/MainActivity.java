@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 .add("اخبار", NewsFragment.class)
                 .add("موقعیت", LocationFragment.class)
                 .create());
+        //51511515
 
         ViewPager viewPager = findViewById(R.id.viewPagerMainActivity);
         viewPager.setAdapter(adapter);
