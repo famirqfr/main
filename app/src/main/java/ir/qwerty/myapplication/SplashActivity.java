@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class SplashActivity extends AppCompatActivity {
 
     private final int LOCATION_REQUEST_CODE = 99;
+    private boolean hasPerm = false;
 
 
     @Override
@@ -29,55 +30,43 @@ public class SplashActivity extends AppCompatActivity {
             requestLocationPermission();
 
         } else {
-
             Toast.makeText(SplashActivity.this, "مجوز قبلا دریافت شده", Toast.LENGTH_SHORT).show();
-
         }
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                if (hasPerm) {
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else
+                    onDestroy();
             }
-        }, 1000);
+        }, 5000);
     }
 
     private void requestLocationPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(SplashActivity.this, Manifest.permission.CAMERA)) {
-
-            new AlertDialog.Builder(this)
+        if (ActivityCompat.shouldShowRequestPermissionRationale(SplashActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            reqPermission();
+            /*new AlertDialog.Builder(this)
                     .setTitle("درخواست مجوز")
-                    .setMessage("برای دسترسی به دوربین باید مجوز را تایید کنید")
+                    .setMessage("برای دسترسی به موقعیت باید مجوز را تایید کنید")
                     .setPositiveButton("موافقم", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
-                            reqPermission();
-
-                        }
-                    })
-                    .setNegativeButton("لغو", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            dialogInterface.dismiss();
-
                         }
                     })
                     .create()
                     .show();
-
+            */
         } else {
-
             reqPermission();
-
         }
     }
 
     private void reqPermission() {
-        ActivityCompat.requestPermissions(SplashActivity.this, new String[]{Manifest.permission.CAMERA}, LOCATION_REQUEST_CODE);
+        ActivityCompat.requestPermissions(SplashActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
     }
 
     @Override
@@ -85,11 +74,11 @@ public class SplashActivity extends AppCompatActivity {
         if (requestCode == LOCATION_REQUEST_CODE) {
 
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
+                hasPerm = true;
                 Toast.makeText(this, "مجوز تایید شد", Toast.LENGTH_SHORT).show();
 
             } else {
-
+                hasPerm = false;
                 Toast.makeText(this, "مجوز رد شد", Toast.LENGTH_SHORT).show();
 
             }
