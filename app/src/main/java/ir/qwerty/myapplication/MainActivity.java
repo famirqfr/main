@@ -88,15 +88,15 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentPagerAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), FragmentPagerItems.with(this)
+                .add("گزارش", ReportFragment.class)
                 .add("پیام", MessageFragment.class)
                 .add("اخبار", NewsFragment.class)
-                .add("گزارش", ReportFragment.class)
                 .add("موقعیت", LocationFragment.class)
                 .create());
 
         ViewPager viewPager = findViewById(R.id.viewPagerMainActivity);
         viewPager.setAdapter(adapter);
-        
+
         SmartTabLayout viewSmartTabLayout = findViewById(R.id.smartTab);
         viewSmartTabLayout.setViewPager(viewPager);
 
