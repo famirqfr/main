@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:text="قدرت گزفته از Q"
+        android:text="قدرت گرفته از Q"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
