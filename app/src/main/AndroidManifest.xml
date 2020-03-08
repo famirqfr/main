@@ -35,6 +35,7 @@
             android:label="@string/title_activity_maps"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,6 +43,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".ChatMessageActivity" />
+        <activity android:name=".ChatReportActivity" />
     </application>
 
 </manifest>
