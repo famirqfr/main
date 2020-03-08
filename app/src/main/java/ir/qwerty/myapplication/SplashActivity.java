@@ -36,9 +36,8 @@ public class SplashActivity extends AppCompatActivity {
                     Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
-
                 }
-            },2000);
+            }, 2000);
 
 
         }
@@ -85,7 +84,6 @@ public class SplashActivity extends AppCompatActivity {
                 Toast.makeText(this, "مجوز رد شد", Toast.LENGTH_SHORT).show();
                 requestLocationPermission();
             }
-
         }
     }
 }
