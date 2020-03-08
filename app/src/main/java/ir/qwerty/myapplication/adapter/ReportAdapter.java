@@ -1,20 +1,24 @@
 package ir.qwerty.myapplication.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import ir.qwerty.myapplication.ChatReportActivity;
 import ir.qwerty.myapplication.R;
 import ir.qwerty.myapplication.model.ReportModel;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportViewHolder>{
     List<ReportModel> reportModels;
+    ConstraintLayout constraintLayout;
 
     public ReportAdapter(List<ReportModel> reportModels) {
         this.reportModels = reportModels;
@@ -22,8 +26,18 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
 
     @NonNull
     @Override
-    public ReportViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ReportViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.report_item_style,parent,false);
+        constraintLayout=view.findViewById(R.id.reportFrame);
+        constraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(parent.getContext(), ChatReportActivity.class);
+                parent.getContext().startActivity(intent);
+            }
+        });
+
+
         return new ReportViewHolder(view);
     }
 
