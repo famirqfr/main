@@ -2,12 +2,14 @@ package ir.qwerty.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -41,9 +43,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.aa);
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("R.string.drawer_item_home");
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("R.string.drawer_item_settings");
-
+        PrimaryDrawerItem message = new PrimaryDrawerItem().withIdentifier(1).withName("پبام");
+        SecondaryDrawerItem sendmessage = new SecondaryDrawerItem().withIdentifier(2).withName("ارسال پیام");
+        PrimaryDrawerItem report = new PrimaryDrawerItem().withIdentifier(3).withName("گزارش");
+        SecondaryDrawerItem sendreport = new SecondaryDrawerItem().withIdentifier(4).withName("ارسال گزارش");
+        PrimaryDrawerItem location = new PrimaryDrawerItem().withIdentifier(5).withName("موقعیت");
+        SecondaryDrawerItem news = new SecondaryDrawerItem().withIdentifier(6).withName("اخبار");
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -53,15 +58,19 @@ public class MainActivity extends AppCompatActivity {
                         new ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon(getResources().getDrawable(R.drawable.ic_launcher_background))
                 )
                 .build();
+
         //create the drawer and remember the `Drawer` result object
         Drawer result = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1,
-                        item2
-
+                        message,
+                        sendmessage,
+                        report,
+                        sendreport,
+                        location,
+                        news
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
